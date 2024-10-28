@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <title>Operation Result</title>
+</head>
+<body>
+<h1>Operation Successful</h1>
+
+<h2>Address Book Details</h2>
+<p><strong>Name:</strong> <span th:text="${addressBook.name}"></span></p>
+<p><strong>ID:</strong> <span th:text="${addressBook.id}"></span></p>
+
+<h3>Buddies in Address Book</h3>
+<ul>
+  <li th:each="buddy : ${addressBook.addressBook}">
+    <p><strong>Name:</strong> <span th:text="${buddy.getName()}"></span></p>
+    <p><strong>Phone Number:</strong> <span th:text="${buddy.getPhoneNumber()}"></span></p>
+  </li>
+</ul>
+
+<div>
+  <a th:href="@{/addressBook}">Back to Address Book Creation</a> |
+  <a th:href="@{/addressBook/{id}/buddy(id=${addressBook.id})}">Add Another Buddy</a>
+</div>
+</body>
+</html>
+

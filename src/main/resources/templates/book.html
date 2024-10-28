@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buddies List</title>
+</head>
+<body>
+<h1>AddressBook</h1>
+
+<div th:if="${error}">
+    <p th:text="${error}"></p>
+</div>
+
+<div th:if="${addressBook}">
+    <h2>AddressBooks: <span th:text="${1}"></span></h2>
+    <ul>
+        <li th:each="buddy : ${addressBook.getAddressBook()}">
+            <span th:text="${buddy.name}"></span> -
+            <span th:text="${buddy.phoneNumber}"></span>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
